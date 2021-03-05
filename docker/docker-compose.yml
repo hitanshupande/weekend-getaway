@@ -26,10 +26,12 @@ services:
         environment:
             - LOAD_EX=n
             - EXECUTOR=Local
+            - AIRFLOW__CORE__FERNET_KEY= "QmBUxBumN8giKUF17bPtv-2KBMvsji-h7n9bSUiQGbA="
         volumes:
             - ../dags:/usr/local/airflow/dags #DAG folder
             - ../spark/app:/usr/local/spark/app #Spark Scripts (Must be the same path in airflow and Spark Cluster)
             - ../spark/resources:/usr/local/spark/resources #Resources folder (Must be the same path in airflow and Spark Cluster)
+            - ../docker/docker-airflow/config/airflow.cfg:/usr/local/airflow/airflow.cfg
         ports:
             - "8282:8282"
         command: webserver
@@ -113,18 +115,18 @@ services:
             - ../spark/app:/usr/local/spark/app # Spark scripts folder (Must be the same path in airflow and Spark Cluster)
             - ../spark/resources:/usr/local/spark/resources #Resources folder (Must be the same path in airflow and Spark Cluster)
 
-    #Jupyter notebook
-    jupyter-spark:
-        image: jupyter/pyspark-notebook:3.0.1
-        networks:
-            - default_net
-        ports:
-          - "8888:8888"
-          - "4040-4080:4040-4080"
-        volumes:
-          - ../notebooks:/home/jovyan/work/notebooks/
-          - ../spark/resources/data:/home/jovyan/work/data/
-          - ../spark/resources/jars:/home/jovyan/work/jars/
+    # #Jupyter notebook
+    # jupyter-spark:
+    #     image: jupyter/pyspark-notebook:3.0.1
+    #     networks:
+    #         - default_net
+    #     ports:
+    #       - "8888:8888"
+    #       - "4040-4080:4040-4080"
+    #     volumes:
+    #       - ../notebooks:/home/jovyan/work/notebooks/
+    #       - ../spark/resources/data:/home/jovyan/work/data/
+    #       - ../spark/resources/jars:/home/jovyan/work/jars/
 
 networks:
     default_net:

@@ -1,5 +1,6 @@
 misc.txt
 dags/__pycache__
+dags/scripts
 .ipynb_checkpoints
 .part*
 part-*

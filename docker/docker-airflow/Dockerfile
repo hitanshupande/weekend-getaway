@@ -80,6 +80,9 @@ RUN set -ex \
     && python --version \
     && pip freeze
 
+#Install aws cli.
+RUN pip install awscli --upgrade --user
+
 ###############################
 ## Begin JAVA installation
 ###############################
