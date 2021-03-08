@@ -1,3 +1,12 @@
+# Weekend Getaway - National Parks
+
+For National Park buffs in the US, this product provides the best airfare deals from your home airport to almost 50 National Parks in the States. Subscribe to the newsletter to get weekly deals that can offer a quick getaway at the best prices possible! Now you can plan a trip over a coming weekend and check another National Park off your bucket list.
+
+This repository has been built on top of the starter Airflow + Spark Docker setup provided by Corano-Thiago: https://github.com/cordon-thiago/airflow-spark
+
+Instructions to get set up are provided below:
+
+
 # Airflow Spark
 
 This project contains the following containers:
