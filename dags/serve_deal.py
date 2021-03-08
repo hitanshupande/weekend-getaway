@@ -18,9 +18,16 @@ import time
 import psycopg2
 import pandas.io.sql as psql
 
+conn_id = Variable.get("conn_id")
+conn_type = Variable.get("conn_type")
+host = Variable.get("host")
+schema = Variable.get("schema")
+login = Variable.get("login")
+password = Variable.get("password")
+port = Variable.get("port")
 
 def extract_deal_payload():
-	conn = psycopg2.connect(host='postgres', dbname='test', user='test', password='postgres', port=5432)
+	conn = psycopg2.connect(host=host, dbname=schema, user=login, password=password, port=port)
 	df = psql.read_sql('SELECT * FROM subscribed_users', conn)
 	
 	for index, row in df.iterrows():
