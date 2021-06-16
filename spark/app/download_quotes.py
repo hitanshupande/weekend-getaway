@@ -24,8 +24,8 @@ session = boto3.Session()
 #credentials = session.get_credentials()
 #access_key = credentials.access_key
 #secret_key = credentials.secret_key
-access_key = "AKIAVFOOUIHHNA7LLSUT"
-secret_key = "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"
+access_key = ""
+secret_key = ""
 s3 = boto3.resource('s3',
     aws_access_key_id= access_key,
     aws_secret_access_key= secret_key)
@@ -34,7 +34,7 @@ s3 = boto3.resource('s3',
 # API Parameters
 ###############################################
 headers = {
-            'x-rapidapi-key': "OhN9UA6HqSEq38AaMSXS5MxsTcWij6xJ",
+            'x-rapidapi-key': "",
             'x-rapidapi-host': "api.skypicker.com",
             'content-type': "application/x-www-form-urlencoded"
         }
